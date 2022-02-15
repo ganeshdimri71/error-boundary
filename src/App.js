@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import Hero from './components/Hero'
+import ErrorBoundary from './components/ErrorBoundary'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* We are wrapping each and every component with the ErrorBoundary because it is not ideal to hide the other component if there is a error in any one component */ }
+      <ErrorBoundary>
+        <Hero heroName="Batman" />
+        <Hero heroName="Superman" />
+        <Hero heroName="Joker" />
+      </ErrorBoundary>
     </div>
   );
 }
